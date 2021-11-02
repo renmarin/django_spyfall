@@ -1,0 +1,35 @@
+Quick start
+-----------
+
+1. Copy folder spyfall to your django project.
+
+2. Configure django setting like this::
+
+    INSTALLED_APPS = [
+        ...
+        'spyfall.apps.SpyfallConfig',
+    ]
+    
+    DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'set_DB_name',
+        'USER': 'set_DB_user',
+        'PASSWORD': 'set_DB_password',
+        'HOST': '127.0.0.1',
+    }
+}
+
+3. Include the spyfall URLconf in your project urls.py like this::
+
+    from django.urls import include
+
+    path('spyfall/', include('spyfall.urls')),
+
+4. Run "python manage.py migrate" to create the spyfall models.
+
+5. Start the development server "python manage.py runserver" and visit http://127.0.0.1:8000/admin/
+   to create a places and roles (you'll need the Admin app enabled).
+
+6. Visit http://127.0.0.1:8000/spyfall/ to play.
+

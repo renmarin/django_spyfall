@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Room {{room_id}}</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'spyfall/style.css' %}">
+    <link rel="shortcut icon" href="{% static 'spyfall/images/favicon.ico' %}" type="image/x-icon">
+</head>
+<body class="room">
+        {% for message in messages %}
+            {{ message }}
+        {% endfor %}
+        <br>
+        <div id="timer"></div><br>
+    <div id="js_u">
+        Player: {{ players_ratio }}
+    </div>
+<!--    <div>Players: {{ players_ratio }}</div>-->
+    <h1>{{ place }}</h1>
+    <h2>All roles for room:
+        {% for role_1 in all_roles_for_room %}
+        "{{ role_1 }}"
+        {% endfor%}
+    </h2>
+    <div><em><strong>{{ player_name }}</strong></em> yor role is {{ role }}</div>
+    <ul id="players_in_game">Players in game:
+        {% for user in users %}
+        <li>{{ user }}</li>
+        {% endfor %}
+    </ul>
+    <div id="form_1">
+    <form action="{% url 'spyfall:room' room_id %}" method="post">
+        {% csrf_token %}
+        <input id="start/end" type="submit" value="Start" name="start">
+    </form>
+    </div>
+        <form action="{% url 'spyfall:room' room_id %}" method="post">
+        {% csrf_token %}
+        <input type="submit" value="Exit" name="exit">
+    </form>
+        <form action="{% url 'spyfall:room' room_id %}" method="post">
+        {% csrf_token %}
+        <input type="submit" value="New Game" name="new_game">
+    </form>
+<!--        <div>Meta Data:-->
+<!--            {% for data in meta_data %}-->
+<!--                <br>{{ data }}-->
+<!--            {% endfor %}-->
+<!--        </div>-->
+    <script>
+        var var_time = "{{ time }}",
+            room_id = "{{ room_id }}",
+            control_room = "{% url 'spyfall:control_room' room_id %}",
+            room = "{% url 'spyfall:room' room_id %}";
+    </script>
+    <script src="{% static 'spyfall/js_for_room.js' %}"></script>
+<!--    <br><br><h1>{{ time }}</h1>-->
+</body>
+</html>
+
+<!--Legacy JavaScript in room.js file.-->

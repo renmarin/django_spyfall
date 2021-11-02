@@ -1,0 +1,61 @@
+.index {
+  background: linear-gradient(rgba(0, 0, 0, 0.9),rgba(0, 0, 0, 0.9)) , url("images/brick-wall-1245825_1920.jpg");
+}
+.room {
+  background-color: white;
+  border: 2px solid purple;
+  padding: 2.3rem 0.5rem 2.3rem 0.5rem;
+  max-width: max-content;
+  text-align: center;
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
+  border-radius: .5rem;
+}
+.background {
+  width: 100%;
+  height: 100%;
+}
+.foreground {
+  /* background: linear-gradient(rgba(0, 0, 0, 0.85),rgba(0, 0, 0, 0.85)) , url("images/brick-wall-1245825_1920.jpg") no-repeat center; */
+  max-width: max-content;
+  box-shadow:
+  0 0 0.1vw  0.4vw #fff7f7,
+  0 0 0.4vw  0.6vw #e97272,
+  0 0   4vw  0.4vw #e50b0b,
+  inset 0 0 1.5vw  0.4vw #e50b0b,
+  inset 0 0 0.4vw  0.2vw #e97272,
+  inset 0 0 0.5vw  0.2vw #fff7f7;
+  border-radius: 1.5rem;
+  text-align: center;
+  padding: 0.5rem 2.3rem 25rem 2.3rem;
+  margin: 0 auto;
+  color: black;
+  text-shadow:
+        0 0 7px #fff,
+        0 0 10px #fff,
+        0 0 21px #fff,
+        0 0 42px #e50b0b,
+        0 0 82px #e50b0b,
+        0 0 92px #e97272,
+        0 0 102px #fff7f7,
+        0 0 151px #fff7f7;
+}
+.img-author {
+    vertical-align: text-bottom;
+    text-shadow:
+        0 0 7px #fff,
+        0 0 10px #fff,
+        0 0 21px #fff,
+        0 0 42px #e50b0b,
+        0 0 82px #e50b0b,
+        0 0 92px #e97272,
+        0 0 102px #fff7f7,
+        0 0 151px #fff7f7;
+}
+a:link {
+  color: black;
+}
+a:visited {
+  color: black;
+}

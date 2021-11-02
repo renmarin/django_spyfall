@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Spyfall</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'spyfall/style.css' %}">
+    <link rel="shortcut icon" href="{% static 'spyfall/images/favicon.ico' %}" type="image/x-icon">
+    <script>
+        {% if full_room_error == '1' %}
+            alert('Room {{ room_number }} is full')
+        {% endif %}
+        {% if message %}
+            alert('{{ message }}')
+        {% endif %}
+    </script>
+</head>
+<body class="index">
+    <div class="background"></div>
+    <div class="foreground">
+        <br>
+        {% for message in messages %}
+            {{ message }}
+        {% endfor %}
+        <br><br>
+<!--        {{ db }}-->
+        <h1>Spyfall</h1>
+        <h2>Hub</h2>
+        <!--  Form for creating random room  -->
+        <form action="{% url 'spyfall:index' %}" method="post">
+            {% csrf_token %}
+        <input type="submit" name="new_room" value="New room">
+        <br>
+        <!--  Form for setting a new name to user  -->
+        </form>
+        <form action="{% url 'spyfall:index' %}" method="post">
+            {% csrf_token %}
+            {{ SetNameForm }}
+            <input type="submit" value="Set Name">
+        </form>
+        <!--  Form for connecting to some room with individual name  -->
+        <form action="{% url 'spyfall:index' %}" method="post">
+            {% csrf_token %}
+            {{ JoinRoomForm }}
+            <input type="submit" value="Join">
+        </form>
+        <div><h3>Player name: {{ user_name }}</h3></div>
+    </div>
+    <div class="img-author">
+        Image by <a href="https://pixabay.com/photos/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=1245825">Free-Photos</a> from <a href="https://pixabay.com/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=1245825">Pixabay</a>
+    </div>
+</body>
+</html>
