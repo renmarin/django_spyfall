@@ -1,7 +1,7 @@
 Quick start
 -----------
 
-1. Copy folder spyfall to your django project.
+1. Copy repository files to spyfall folder and put it into your django project.
 
 2. Configure django setting like this::
 
